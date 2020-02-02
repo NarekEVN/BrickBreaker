@@ -28,7 +28,11 @@ class Game{
     // let image = document.querySelector("img")
     // Game.ctx.beginPath();
     // Game.ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    requestAnimationFrame(() => this.fill())
+    requestAnimationFrame(() =>{
+      this.fill();
+      this.drawBricks();
+      this.collistion();
+    })
   }
   drawBricks(){
     Game.ctx.strokeStyle = '#fff';
@@ -39,7 +43,7 @@ class Game{
       Game.ctx.fillRect(this.bricks.arr[i].x, this.bricks.arr[i].y, 40, 20);
       Game.ctx.strokeRect(this.bricks.arr[i].x, this.bricks.arr[i].y, 40, 20);
     }
-    requestAnimationFrame(() => this.drawBricks())
+    // requestAnimationFrame(() => this.drawBricks())
   }
   collistion(){
     this.bricks.finish();
@@ -51,7 +55,7 @@ class Game{
         this.ball.collision();
       }
     }
-    requestAnimationFrame(() => this.collistion())
+    // requestAnimationFrame(() => this.collistion())
   }
 }
 
